@@ -7,13 +7,13 @@
 
 <?php 
 
-		include("../modelo/Objeto_blog.php");
-		include("../modelo/Manejo_objetos.php");
+		include_once("../modelo/Objeto_blog.php");
+		include_once("../modelo/Manejo_objetos.php");
 
 
 try {
 		$conexion=new PDO("mysql:host=localhost; dbname=bbddblog","root","");
-		$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXEPTION);
+		$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 
 		$conexion=mysqli_connect("localhost", "root", "", "bbddblog");
@@ -51,7 +51,7 @@ try {
 
 			if ((isset($_FILES["imagen"]["name"]) && ($_FILES["imagen"]["error"] == UPLOAD_ERR_OK))) {
 				
-				$destino_de_ruta="imagenes/";
+				$destino_de_ruta="../imagenes/";
 				move_uploaded_file($_FILES["imagen"]["tmp_name"],$destino_de_ruta . $_FILES["imagen"]["name"]);
 				echo "El archivo " . $_FILES["imagen"]["name"] . " se ha copiado en el directorio de imagenes <br>";
 			}
@@ -62,12 +62,14 @@ try {
 		$Manejo_objetos=new Manejo_Objetos($conexion);
 
 		$blog=new Objeto_blog();
-		$blog->setTitulo(htmlentities(addslashes($_POST["campo_titulo"]),ENT_QUOTES);
+		$blog->setTitulo(htmlentities(addslashes($_POST["campo_titulo"]),ENT_QUOTES));
 		$blog->setFecha(Date("Y-m-d H:i:s"));
-		$blog->setComentarios(htmlentities(addslashes($_POST["area_comentarios"]),ENT_QUOTES);
+		$blog->setComentarios(htmlentities(addslashes($_POST["area_comentarios"]),ENT_QUOTES));
 		$blog->setImagen($_FILES["imagen"]["name"]);
 
-		$Manejo_objetos->insertaContenido($blog)
+		$Manejo_objetos->insertaContenido($blog);
+
+		echo "<br> Entrada de blog agregada con exito <br/>";
 
 		}	
 		catch (Exception $e) {

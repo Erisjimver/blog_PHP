@@ -18,7 +18,7 @@
 			exit();
 		}
 		//$consulta="select titulo,fecha,comentario,imagen from cotenido order by fecha desc";
-		$consulta="select * from contenido order by fecha desc";
+		$consulta="select * from contenido order by fecha";
 
 
 		if($resultado=mysqli_query($conexion, $consulta)){

@@ -4,9 +4,9 @@
  * 
  */
 
-include ("Objeto_blog.php");
+include_once("Objeto_blog.php");
 
-class Manejo_objeto{
+class Manejo_objetos{
 	
 
 
@@ -30,9 +30,9 @@ class Manejo_objeto{
 
 			$contador=0;
 
-			$resultado=this->conexion->query("select * from contenido order by desc");
+			$resultado=$this->conexion->query("select * from contenido order by fecha desc");
 
-			while ($registro=$resultado)->fetch(PDO::FETCH_ASSOC) {
+			while ($registro=$resultado->fetch(PDO::FETCH_ASSOC)) {
 				
 				$blog=new Objeto_Blog();
 
@@ -52,7 +52,8 @@ class Manejo_objeto{
 
 		public function insertaCOntenido(Objeto_blog $blog){
 
-			$sql="insert into contenido (titulo,fecha,comentario,imagen) values ('$blog->getTitulo','$blog->getFecha','$blog->getComentarios','$blog->getImagen')";
+			//$sql="insert into contenido (titulo,fecha,comentario,imagen) values ('$blog->getTitulo','$blog->getFecha','$blog->getComentarios','$blog->getImagen')";
+			$sql="insert into contenido (titulo,fecha,comentario,imagen) values ('" . $blog->getTitulo . "','" . $blog->getFecha . "','" . $blog->getComentarios . "','" . $blog->getImagen . "')";
 			$this->$conexion->exec($sql);
 		}
 		

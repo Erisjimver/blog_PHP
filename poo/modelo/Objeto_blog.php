@@ -15,21 +15,28 @@
 		public function setId($id){
 			$this->id=$id;
 		}
-//////////////////// id ----------------------
+//////////////////// fecha ----------------------
 		public function getFecha(){
 			return $this->fecha;
 		}
 		public function setFecha($fecha){
 			$this->fecha=$fecha;
 		}
-//////////////////// id ----------------------
+//////////////////// fecha ----------------------
+		public function getTitulo(){
+			return $this->titulo;
+		}
+		public function setTitulo($titulo){
+			$this->titulo=$titulo;
+		}
+//////////////////// comentarios ----------------------
 		public function getComentarios(){
 			return $this->comentarios;
 		}
 		public function setComentarios($comentarios){
 			$this->comentarios=$comentarios;
 		}
-//////////////////// id ----------------------
+//////////////////// imagen ----------------------
 		public function getImagen(){
 			return $this->imagen;
 		}
