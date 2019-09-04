@@ -16,7 +16,7 @@ try {
 		$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 
-		$conexion=mysqli_connect("localhost", "root", "", "bbddblog");
+		//$conexion=mysqli_connect("localhost", "root", "", "bbddblog");
 
 		if (!$conexion) {
 			echo "La conexion ha fallado" . mysqli_erro();
@@ -77,6 +77,9 @@ try {
 }
 
 
+
 ?>
+<br>
+<a href="../vista/Formulario.php">Volver a la pagina de inserccion</a>
 </body>
 </html>

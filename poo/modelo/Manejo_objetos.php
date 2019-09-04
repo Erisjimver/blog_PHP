@@ -1,14 +1,9 @@
 <?php 
 
-/**
- * 
- */
-
 include_once("Objeto_blog.php");
 
 class Manejo_objetos{
 	
-
 
 		private $conexion;
 
@@ -53,8 +48,8 @@ class Manejo_objetos{
 		public function insertaCOntenido(Objeto_blog $blog){
 
 			//$sql="insert into contenido (titulo,fecha,comentario,imagen) values ('$blog->getTitulo','$blog->getFecha','$blog->getComentarios','$blog->getImagen')";
-			$sql="insert into contenido (titulo,fecha,comentario,imagen) values ('" . $blog->getTitulo . "','" . $blog->getFecha . "','" . $blog->getComentarios . "','" . $blog->getImagen . "')";
-			$this->$conexion->exec($sql);
+			$sql="insert into contenido (titulo,fecha,comentario,imagen) values ('" . $blog->getTitulo() . "','" . $blog->getFecha() . "','" . $blog->getComentarios() . "','" . $blog->getImagen() . "')";
+			$this->conexion->exec($sql);
 		}
 		
 	

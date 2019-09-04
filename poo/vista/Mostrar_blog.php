@@ -27,9 +27,9 @@ try {
 			foreach ($tabla_blog as $valor) {
 				echo "<h3>" . $valor->getTitulo() . "</h3>";
 				echo "<h4>" . $valor->getFecha() . "</h4>";
-				echo "<div style=width:'400px'>" . $valor->getComentarios() . "</div> <br>";
+				echo "<div style='width:400px'>" . $valor->getComentarios() . "</div> <br>";
 				if($valor->getImagen()!=""){
-					echo "<img src='../imagenes/" . $valor->getImagen() . "' width:'200px' />";
+					echo "<img src='../imagenes/" . $valor->getImagen() . "' width='200px' />";
 				}
 				echo "<hr/>";
 			
